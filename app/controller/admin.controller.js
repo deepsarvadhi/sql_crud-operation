@@ -94,7 +94,28 @@ async function adminResetPassword(req, res) {
         });
 
     } catch (error) {
-        console.log("🚀 ~ file: admin.controller.js:74 ~ adminResetPassword ~ error:", error)
+        console.log("🚀 ~ file: admin.controller.js:74 ~ adminResetPassword ~ error:", error);
+    }
+}
+
+async function viewallUsers(eq, res) {
+    try {
+        const sql = `SELECT * FROM user WHERE 1`;
+
+        connection.query(sql, (err, data) => {
+            if (err) {
+                console.log("🚀 ~ file: user.controller.js:18 ~ connection.query ~ err:", err);
+            }
+
+            if (!data) {
+                return res.status(HTTP.SUCCESS).send({ status: false, code: HTTP.BAD_REQUEST, message: "No user found", data: {} });
+            }
+            return res.status(HTTP.SUCCESS).send({ status: true, code: HTTP.SUCCESS, message: "All user Show", data: data });
+
+        });
+
+    } catch (error) {
+        console.log("🚀 ~ file: admin.controller.js:105 ~ viewallUsers ~ error:", error);
     }
 }
 
@@ -102,5 +123,6 @@ async function adminResetPassword(req, res) {
 
 module.exports = {
     adminSignIn,
-    adminResetPassword
+    adminResetPassword,
+    viewallUsers
 }

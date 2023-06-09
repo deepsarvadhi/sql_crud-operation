@@ -6,7 +6,7 @@ const HTTP = require('../../constants/responseCode.constant');
 async function addData(req, res) {
     try {
         let { name, email, password, role } = req.body;
-        var sql = `INSERT INTO user (name, email, password, role) VALUES ('${name}','${email}','${password}','${role}')`;
+        var sql = `INSERT INTO 'user' (name, email, password, role) VALUES ('${name}','${email}','${password}','${role}')`;
 
         if (!name || !email || !password || !role) {
             return res.status(HTTP.SUCCESS).send({ status: true, code: HTTP.NOT_FOUND, message: "All fialds are reqide", data: {} });

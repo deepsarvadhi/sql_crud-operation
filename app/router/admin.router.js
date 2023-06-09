@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const admincontroller = require('../controller/admin.controller');
 
-router.post('/admin_signIn', admincontroller.adminSignIn)
+
+// (Admin default Sign Up)
+router.post('/admin_signIn', admincontroller.adminSignIn);
+router.post('/adminResetPassword', admincontroller.adminResetPassword);
 
 
 

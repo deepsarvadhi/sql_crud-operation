@@ -66,6 +66,41 @@ async function adminSignIn(req, res) {
     }
 }
 
+// admin Reset Password
+
+async function adminResetPassword(req, res) {
+    try {
+        let { email, password, Cpassword } = req.body;
+        var sql = `SELECT * FROM admin WHERE email = '${email}' AND password = '${password}'`;
+
+        connection.query(sql, (err, data) => {
+            for (var Dataid of data) { }
+            if (err) {
+                console.log("🚀 ~ file: user.controller.js:18 ~ connection.query ~ err:", err);
+            }
+
+            if (!data) {
+                return res.status(HTTP.SUCCESS).send({ status: false, code: HTTP.BAD_REQUEST, message: "Email or Password Increct", data: {} });
+            }
+
+            const sqlupdate = `UPDATE admin SET password = '${Cpassword}' WHERE id = ${Dataid.id}`;
+
+            connection.query(sqlupdate, (err, data) => {
+                if (err) {
+                    console.log("🚀 ~ file: user.controller.js:18 ~ connection.query ~ err:", err);
+                }
+                return res.status(HTTP.SUCCESS).send({ status: true, code: HTTP.SUCCESS, message: "Password update successfully", data: {} });
+            });
+        });
+
+    } catch (error) {
+        console.log("🚀 ~ file: admin.controller.js:74 ~ adminResetPassword ~ error:", error)
+    }
+}
+
+
+
 module.exports = {
-    adminSignIn
+    adminSignIn,
+    adminResetPassword
 }

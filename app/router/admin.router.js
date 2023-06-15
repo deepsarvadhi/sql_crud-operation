@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const admincontroller = require('../controller/admin.controller');
+import admincontroller from '../controller/admin.controller.js';
 
 
 // (Admin default Sign Up)
@@ -10,4 +10,4 @@ router.get('/ViewAllUsers', admincontroller.viewallUsers)
 
 
 
-module.exports = router;
+export default router;

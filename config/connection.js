@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+import mysql from 'mysql';
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -15,4 +15,4 @@ connection.connect((error) => {
     console.log('Connected to the database!');
 });
 
-module.exports = connection;
+export default connection;

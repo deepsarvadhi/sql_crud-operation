@@ -1,8 +1,6 @@
-const express = require('express');
-const mysql = require('mysql');
-const connection = require('../../config/connection');
-const HTTP = require('../../constants/responseCode.constant');
-var jwt = require('jsonwebtoken');
+import connection from '../../config/connection.js';
+import HTTP from '../../constants/responseCode.constant.js';
+import jwt from 'jsonwebtoken';
 
 // Default Sign up
 
@@ -121,7 +119,7 @@ async function viewallUsers(eq, res) {
 
 
 
-module.exports = {
+export default {
     adminSignIn,
     adminResetPassword,
     viewallUsers

@@ -1,15 +1,14 @@
-const express = require('express');
+import express  from 'express';
 const app = express();
-const mysql = require('mysql');
-const userrouter = require('./app/router/user.roter');
-const adminrouter = require('./app/router/admin.router');
-const cors = require('cors');
+import userrouter from './app/router/user.roter.js';
+import adminrouter from'./app/router/admin.router.js';
+// import cors from 'cors';
 
-require('./config/connection');
+import './config/connection.js';
 
 app.use(express.json());
 
-app.use(cors({ credentials: true, origin: true }));
+// app.use(cors({ credentials: true, origin: true }));
 
 app.use(userrouter);
 app.use(adminrouter);

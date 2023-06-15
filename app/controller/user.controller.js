@@ -1,7 +1,5 @@
-const express = require('express');
-const mysql = require('mysql');
-const connection = require('../../config/connection');
-const HTTP = require('../../constants/responseCode.constant');
+import connection from '../../config/connection.js';
+import HTTP from '../../constants/responseCode.constant.js';
 
 async function addData(req, res) {
     try {
@@ -14,7 +12,6 @@ async function addData(req, res) {
 
         connection.query(sql, (err, data) => {
             if (err) {
-                console.log("🚀 ~ file: user.controller.js:18 ~ connection.query ~ err:", err);
             }
 
             if (!data) {
@@ -24,7 +21,6 @@ async function addData(req, res) {
         });
 
     } catch (error) {
-        console.log("🚀 ~ file: user.controller.js:7 ~ addData ~ error:", error);
     }
 }
 
@@ -34,7 +30,6 @@ async function viewUserInfo(req, res) {
 
         connection.query(sql, (err, data) => {
             if (err) {
-                console.log("🚀 ~ file: user.controller.js:18 ~ connection.query ~ err:", err);
             }
 
             if (!data) {
@@ -44,8 +39,6 @@ async function viewUserInfo(req, res) {
         });
 
     } catch (error) {
-        console.log("🚀 ~ file: user.controller.js:35 ~ viewUserInfo ~ error:", error);
-
     }
 }
 
@@ -58,7 +51,6 @@ async function editUserInfo(req, res) {
 
         connection.query(sql, (err, data) => {
             if (err) {
-                console.log("🚀 ~ file: user.controller.js:18 ~ connection.query ~ err:", err);
             }
 
             if (!data) {
@@ -68,8 +60,6 @@ async function editUserInfo(req, res) {
         });
 
     } catch (error) {
-        console.log("🚀 ~ file: user.controller.js:56 ~ editUserInfo ~ error:", error);
-
     }
 }
 
@@ -80,7 +70,6 @@ async function deleteUser(req, res) {
 
         connection.query(sql, (err, data) => {
             if (err) {
-                console.log("🚀 ~ file: user.controller.js:18 ~ connection.query ~ err:", err);
             }
 
             if (!data) {
@@ -90,12 +79,10 @@ async function deleteUser(req, res) {
         });
 
     } catch (error) {
-        console.log("🚀 ~ file: user.controller.js:80 ~ deleteUser ~ error:", error);
-
     }
 }
 
-module.exports = {
+export default {
     addData,
     viewUserInfo,
     editUserInfo,

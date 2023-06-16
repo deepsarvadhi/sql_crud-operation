@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 (async function deafultAdminsignup(req, res) {
     try {
-        //Admin exist
+        //Admin exist  
         var sqlcheck = `SELECT * FROM admin WHERE email = 'Admin@gmail.com'`;
 
         connection.query(sqlcheck, (err, data) => {

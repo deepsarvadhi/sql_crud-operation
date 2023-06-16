@@ -1,10 +1,10 @@
 import connection from '../../config/connection.js';
 import HTTP from '../../constants/responseCode.constant.js';
-import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken'; 
 
 // Default Sign up
 
-(async function deafultAdminsignup(req, res) {
+(async function deafultAdminsignup(req, res) { 
     try {
         //Admin exist  
         var sqlcheck = `SELECT * FROM admin WHERE email = 'Admin@gmail.com'`;
